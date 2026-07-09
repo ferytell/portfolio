@@ -1,0 +1,110 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 7, 20, 0.7);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: var(--line);
+  background: rgba(11, 7, 20, 0.92);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.site-header__dot {
+  width: 10px;
+  height: 10px;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(93, 255, 143, 0.2);
+  animation: blink 1.4s steps(2, jump-none) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.site-header__nav--desktop {
+  display: flex;
+  gap: 8px;
+}
+
+.site-header__nav--mobile {
+  display: none;
+}
+
+.site-header__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  padding: 10px 12px;
+  transition: color 0.15s ease;
+}
+
+.site-header__link:hover,
+.site-header__link:focus-visible {
+  color: var(--cyan);
+}
+
+.site-header__link-index {
+  font-family: var(--font-display);
+  font-size: 10px;
+  color: var(--magenta);
+}
+
+.site-header__toggle {
+  display: none;
+  background: transparent;
+  border: 2px solid var(--line);
+  color: var(--text);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .site-header__nav--desktop {
+    display: none;
+  }
+  .site-header__toggle {
+    display: inline-block;
+  }
+  .site-header__nav--mobile {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+    padding: 8px 24px 16px;
+  }
+  .site-header__nav--mobile .site-header__link {
+    justify-content: flex-start;
+    padding: 12px 0;
+  }
+}

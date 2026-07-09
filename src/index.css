@@ -1,0 +1,139 @@
+/* ---------------------------------------------------------------
+   FONT
+   Drop your "Retro Gaming.ttf" file into /public/fonts/ and it
+   will be picked up automatically. Until then the page falls
+   back to a plain monospace stack, no external font is loaded
+   over the network so the bundle stays small.
+----------------------------------------------------------------*/
+@font-face {
+  font-family: "Retro Gaming";
+  src: url("/fonts/RetroGaming.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* palette -- arcade cabinet at night */
+  --bg: #0b0714;
+  --bg-raised: #150f26;
+  --bg-raised-2: #1d1533;
+  --line: #362a54;
+  --text: #f1eef7;
+  --text-muted: #9089ad;
+
+  --cyan: #3df3ff;
+  --magenta: #ff3ea5;
+  --yellow: #ffcf3d;
+  --green: #5dff8f;
+
+  --font-display: "Retro Gaming", "Courier New", monospace;
+  --font-body: "IBM Plex Mono", "Courier New", ui-monospace, monospace;
+
+  --pixel: 4px; /* base pixel unit for stepped borders/shadows */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+a {
+  color: var(--cyan);
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+/* CRT scanline + vignette overlay, purely decorative, ignored by
+   assistive tech and by pointer events */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 500;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.025) 0px,
+    rgba(255, 255, 255, 0.025) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  mix-blend-mode: overlay;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px;
+  color: var(--yellow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pixel-border {
+  border: 2px solid var(--line);
+  box-shadow:
+    0 var(--pixel) 0 0 var(--line),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.section-title {
+  font-size: clamp(22px, 4vw, 32px);
+  color: var(--text);
+  text-shadow: 3px 3px 0 rgba(61, 243, 255, 0.25);
+}
+
+section {
+  padding: 96px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
