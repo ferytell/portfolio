@@ -4,18 +4,18 @@
 
 const timeline = [
   {
-    type: "education",
-    range: "2019 - 2023",
-    title: "B.St. Statistics",
-    place: "Universitas Terbuka",
-    description: "Basic data analysis and Math computingg.",
-  },
-  {
     type: "work",
     range: "2016 - 2022",
     title: "Machine Technician",
     place: "PT Lotus Lingga Pratama",
     description: "Built and maintained machine for create a gold chains.",
+  },
+  {
+    type: "education",
+    range: "2019 - 2023",
+    title: "B.St. Statistics",
+    place: "Universitas Terbuka",
+    description: "Basic data analysis and Math computingg.",
   },
   {
     type: "education",

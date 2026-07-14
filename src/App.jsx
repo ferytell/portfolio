@@ -26,7 +26,9 @@ export default function App() {
             </p>
             <div className="hero__stats">
               <div className="hero__stat">
-                <span className="hero__stat-value">5+</span>
+                <span className="hero__stat-value">
+                  {new Date().getFullYear() - 2022}+
+                </span>
                 <span className="hero__stat-label">Years shipping</span>
               </div>
               <div className="hero__stat">

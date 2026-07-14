@@ -39,15 +39,16 @@ const projects = [
     tags: ["React", "Java", "Postgresql"],
     description:
       "Web application for creating and studying flashcards, create with React, Java and Postgresql.",
-    github: "https://github.com/ferytell/Flappish",
+    github: "https://github.com/ferytell/java-springboot-api",
+    demo: "https://flashcard.ferytell.online/login",
     media: [
       {
         src: "https://raw.githubusercontent.com/ferytell/dataKull/main/flashcard1.PNG",
-        alt: "Cartridge Notes library view",
+        alt: "flashcards app ss1",
       },
       {
         src: "https://raw.githubusercontent.com/ferytell/dataKull/main/flashcardlogin.PNG",
-        alt: "Cartridge Notes library view",
+        alt: "flashcards app ss2",
       },
     ],
   },
@@ -57,11 +58,12 @@ const projects = [
     tags: ["Node.js", "Postgres", "Socket.io"],
     description:
       "Developed as the final project for Hactiv8 Golang Class. MyGram is a CRUD Rest API for a social media platform focused on photo sharing, liking, and commenting.",
+    github: "https://github.com/ferytell/go-jwt",
     media: [
       {
         src: "https://github.com/ferytell/go-jwt/raw/master/docs/image.png",
         type: "image",
-        alt: "Arcade Leaderboard standings screen",
+        alt: "swagger api documentation",
       },
     ],
   },
@@ -94,7 +96,8 @@ const projects = [
     title: "Ubuntu Server",
     tags: ["Ubuntu", "Server", "DIY"],
 
-    description: "NES emulator running directly on the ESP32.",
+    description:
+      "I build my Ubuntu server from used mini PC for cheap, then I configured it as a home server.",
     media: [
       {
         src: "https://raw.githubusercontent.com/ferytell/dataKull/main/IMG_20251009_212512.jpg",
@@ -110,6 +113,34 @@ const projects = [
         src: "https://raw.githubusercontent.com/ferytell/dataKull/main/IMG_20251009_212820.jpg",
         type: "image",
         alt: "Ubuntu Server 3",
+      },
+    ],
+  },
+  {
+    id: "hangul-quiz",
+    title: "Hangul Quiz",
+    tags: ["React", "Language", "Korean"],
+
+    description: "Simple website to learn hangul character.",
+    media: [
+      {
+        src: "https://raw.githubusercontent.com/ferytell/dataKull/main/learn-hangoul.PNG",
+        type: "image",
+        alt: "Hangul Quiz 1",
+      },
+    ],
+  },
+  {
+    id: "kana-quiz",
+    title: "Kana Quiz",
+    tags: ["React", "Language", "Japanese"],
+
+    description: "Simple website to learn character Katakana and Hiragana.",
+    media: [
+      {
+        src: "https://raw.githubusercontent.com/ferytell/dataKull/main/quiz-kana.PNG",
+        type: "image",
+        alt: "Ubuntu Server 1",
       },
     ],
   },
