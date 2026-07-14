@@ -86,14 +86,20 @@ export default function Contact() {
           </label>
 
           <button type="submit" className="contact-form__submit">
-            {status === "sent" ? "MESSAGE SENT" : "PRESS START"}
+            {status === "sent" ? "MESSAGE SENT" : "LAUNCH MESSAGE"}
           </button>
 
           {status === "sent" && (
             <p className="contact-form__note" role="status">
-              Thanks, your message was captured locally. Connect a real email
-              service to deliver it, see the comment in Contact.jsx.
+              Thank you for your message! I will get back to you as soon as
+              possible.
             </p>
+          )}
+          {status !== "sent" && status.success === false && (
+            <p
+              className="contact-form__note contact-form__note--error"
+              role="alert"
+            ></p>
           )}
         </form>
       </div>

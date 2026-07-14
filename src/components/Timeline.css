@@ -1,46 +1,90 @@
-.level-path {
-  list-style: none;
-  margin: 48px 0 0;
-  padding: 0 0 0 28px;
-  position: relative;
+.timeline-toggles {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.timeline-toggle {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding: 10px 14px;
+  background: var(--bg-raised);
+  border: 2px solid var(--line);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.timeline-toggle:hover {
+  color: var(--text);
+}
+
+.timeline-toggle--edu.is-active {
+  border-color: var(--magenta);
+  color: var(--magenta);
+}
+
+.timeline-toggle--work.is-active {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* Three grid tracks: education column / divider line / work column.
+   Hiding a side collapses its track to 0, which pulls the divider
+   line over to hug whichever column is still visible. */
+.dual-timeline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  margin-top: 40px;
+}
+
+.dual-timeline--hide-edu {
+  grid-template-columns: 0fr auto 1fr;
+}
+
+.dual-timeline--hide-work {
+  grid-template-columns: 1fr auto 0fr;
+}
+
+.dual-timeline__col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.dual-timeline__col--edu {
+  padding-right: 24px;
+}
+
+.dual-timeline--hide-edu .dual-timeline__col--edu {
+  padding-right: 0;
+}
+
+.dual-timeline__col--work {
+  padding-left: 24px;
+}
+
+.dual-timeline--hide-work .dual-timeline__col--work {
+  padding-left: 0;
+}
+
+.dual-timeline__line {
+  width: 0;
   border-left: 3px dashed var(--line);
 }
 
-.level-path__item {
-  position: relative;
-  padding-bottom: 48px;
-}
-
-.level-path__item:last-child {
-  padding-bottom: 0;
-}
-
-.level-path__marker {
-  position: absolute;
-  left: -37px;
-  top: 4px;
-  width: 18px;
-  height: 18px;
-  background: var(--bg);
-  border: 3px solid var(--cyan);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.level-path__marker-inner {
-  width: 6px;
-  height: 6px;
-  background: var(--cyan);
-}
-
-.level-path__card {
+.timeline-card {
   background: var(--bg-raised);
-  padding: 20px 24px;
-  margin-left: 12px;
+  padding: 20px 22px;
 }
 
-.level-path__meta {
+.timeline-card__meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -48,46 +92,73 @@
   margin-bottom: 10px;
 }
 
-.level-path__level {
+.timeline-card__level {
   font-family: var(--font-display);
   font-size: 11px;
   color: var(--yellow);
 }
 
-.level-path__tag {
+.timeline-card__tag {
   font-size: 10px;
   letter-spacing: 0.08em;
   padding: 3px 8px;
   border: 1px solid currentColor;
 }
 
-.level-path__tag--work {
+.timeline-card__tag--work {
   color: var(--green);
 }
 
-.level-path__tag--education {
+.timeline-card__tag--education {
   color: var(--magenta);
 }
 
-.level-path__range {
+.timeline-card__range {
   font-size: 12px;
   color: var(--text-muted);
   margin-left: auto;
 }
 
-.level-path__title {
+.timeline-card__title {
   font-size: 17px;
   margin-bottom: 4px;
 }
 
-.level-path__place {
+.timeline-card__place {
   font-size: 13px;
   color: var(--cyan);
   margin: 0 0 10px;
 }
 
-.level-path__desc {
+.timeline-card__desc {
   font-size: 14px;
   color: var(--text-muted);
   margin: 0;
+}
+
+@media (max-width: 720px) {
+  /* Side by side columns get cramped on small screens, stack them
+     instead and drop the divider line since there's no middle to
+     anchor it to. */
+  .dual-timeline,
+  .dual-timeline--hide-edu,
+  .dual-timeline--hide-work {
+    grid-template-columns: 1fr;
+  }
+  .dual-timeline__line {
+    display: none;
+  }
+  .dual-timeline__col--edu,
+  .dual-timeline__col--work {
+    padding: 0;
+  }
+  .dual-timeline__col--edu {
+    order: 1;
+  }
+  .dual-timeline__line {
+    order: 2;
+  }
+  .dual-timeline__col--work {
+    order: 3;
+  }
 }
